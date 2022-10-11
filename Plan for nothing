@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+
+    cin >> n;
+
+    vector<pair< int, int > > PAIR1;
+
+    while ( n-- )
+    {
+        int m;
+        cin >> m;
+        while ( m-- )
+        {
+            int x, y;
+            cin >> x >> y;
+            PAIR1.push_back( { x, y } );
+        }
+    }
+
+    sort( PAIR1.begin(), PAIR1.end() );
+
+    stack< int > STACK1;
+
+    if ( PAIR1[0].first != 1 )
+    {
+        cout << 1 << endl;
+
+        exit(0);
+    }
+
+    for ( auto i : PAIR1 )
+    {
+        if ( STACK1.empty() )
+
+            STACK1.push( i.second );
+        else
+        {
+            if ( i.firt > STACK1.top() + 1 )
+            {
+                break;
+            }
+
+            else if ( i.second > STACK1.top() )
+            {
+                STACK1.push( i.second );
+            }
+        }
+    }
+
+    if (STACK1.top() + 1 > 1000000)
+        cout << -1 << endl;
+    else
+        cout << STACK1.top() + 1 << endl;
+}
