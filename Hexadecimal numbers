@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+typedef long long int ll;
+using namespace std;
+int main() {
+	int t;
+	cin>>t;
+	while(t--) {
+		ll l,r;
+		cin>>l>>r;
+		ll ans=0;
+		auto add_digit = [&](ll n) {
+		ll sum=0;
+		while(n>0){
+			sum+=(n%16);
+			n/=16;
+		}
+	return sum;
+};
+	for(ll i=l;i<=r;i++) {
+		ll val=add_digit(i);
+	    if(__gcd(i,val)>1)
+		ans++;
+	}
+	cout << ans << endl;
+}
+}
