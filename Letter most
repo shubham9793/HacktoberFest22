@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin >> n;
+    string STR;
+    cin >> STR;
+    map< char, int > MAP;
+    for ( int i = 0; i < n; i++ )
+        MAP[STR[i]]++;
+    int res = 0;
+    for ( auto it : MAP )
+    {
+        res = max( res, it.second );
+    }
+
+    cout << res;
+}
