@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define  ll long long 
+int main() {
+	int t; cin>>t;
+	while(t--) {
+		ll n; cin>>n;
+		vector<int>bits(64,0);
+		for(int i=0;i<n;i++) {
+			ll arr; cin>>arr;
+			int l= 0;
+			while(arr) {
+				bits[l++] +=arr%2;
+				arr = arr/2;
+			}
+		}
+		ll a = 0;
+		for(int i=0;i<64;i++) {
+			if(bits[i] > n/2) {
+				a+=(1LL<<i);
+			}
+		}
+		cout<<a<<endl;
+	}
+	return 0;
+}
