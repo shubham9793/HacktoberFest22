@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main()
+{
+	int t;
+	cin >>t;
+	while(t--)
+	{
+	int cost1,cost2;
+	cin>>cost1;
+	cin>>cost2;
+	int n;
+	cin>>n;
+	int count1=0,count2=0;
+	for(int i=0;i<n;i++)
+	{
+		int a,b;
+		cin>>a>>b;
+		if(a==1)
+		count1++;
+		if(b==1)
+		count2++;
+	}	
+	cout<<min(count1*cost1+count2*cost2,count2*cost1+count1*cost2)<<endl;
+	}
+	return 0;
+}
